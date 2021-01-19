@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const session = require("express-session");
+var cors = require('cors')
 const app = express();
 require("./db.js");
 
@@ -15,6 +16,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cors())
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());

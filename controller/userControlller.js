@@ -5,8 +5,8 @@ const bcrypt = require("bcryptjs");
 exports.user_login_post = (req, res, next) => {
     passport.authenticate('local', function (err, user, info) {
         if (err) { return next(err) }
-        if (!user) { return res.json({ message: info.message }) };
-        res.json({ message: "success" })
+        if (!user) { return res.json({ message: "Credentials are wrong" }) };
+        res.json({ user, message: "success" })
     })(req, res, next);
 };
 
